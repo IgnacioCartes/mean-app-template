@@ -1,0 +1,11 @@
+# node modules folder
+node_modules/
+
+# logs files
+logs
+
+# NPM cache directory
+.npm
+
+# Mac OS X DS Store files
+.DS_Store

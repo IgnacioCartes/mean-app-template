@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>MEAN App Template</title>
+    <meta name="description" content="">
+    <meta name="author" content="Ignacio Cartes">
+
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="NodeBookmarkerApp" ng-controller="MainController">
+    <div class="container" ng-hide="loading">
+        <h1>&#9734; NODE Bookmarker</h1>
+        <hr>
+        <div ng-controller="BookmarksController">
+            <h2>Bookmarks</h2>
+            <input type="text" placeholder="Find..." ng-show="$parent.bookmarks.length">
+            <ul>
+                <li ng-repeat="bookmark in $parent.bookmarks">
+                    <a ng-href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a>
+                    <a ng-click="delete(bookmark)" class="bm-option">[ delete ]</a>
+                </li>
+            </ul>
+            <hr>
+            <h2>Add a new bookmark</h2>
+            <form ng-submit="post(title, url)">
+                <input type="text" ng-model="title" placeholder="Name" />
+                <input type="text" ng-model="url" placeholder="http://" />
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Scripts loading -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- Angular 1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.min.js"></script>
+    <!-- App -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

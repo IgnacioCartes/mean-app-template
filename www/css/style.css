@@ -1,0 +1,42 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.2rem;
+    color: #060B10;
+}
+
+a {
+    color: #305880;
+}
+
+ul {
+    list-style-type: square;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #172A3D;
+    margin: 1.2em 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.bm-option {
+    font-size: 0.9rem;
+    color: #5AA5F0;
+    background: transparent;
+    border: 0;
+}
+
+.bm-option:hover {
+    cursor: pointer;
+}
