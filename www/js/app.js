@@ -75,8 +75,10 @@
                 title: title,
                 url: url
             }, (response) => {
-                // successful request
+                // successful post
                 $scope.$parent.bookmarks.push(response);
+                $scope.title = "";
+                $scope.url = "http://";
             }, (response) => {
                 // error
                 console.log("error", response);
