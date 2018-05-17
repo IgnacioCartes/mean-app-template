@@ -24,6 +24,13 @@
                         title: '@title',
                         link: '@link'
                     }
+                },
+                update: {
+                    method: 'PUT',
+                    params: {
+                        title: '@title',
+                        link: '@link'
+                    }
                 }
             }
         );
@@ -69,8 +76,13 @@
 
         };
 
+        $scope.toggleEdit = function (bookmark) {
+            console.log(bookmark);
+            bookmark._isBeingEdited = !(bookmark._isBeingEdited);
+        };
+
         $scope.post = function (title, url) {
-            console.log(title, url);
+            // call post method
             BookmarkFactory.post({
                 title: title,
                 url: url
@@ -83,6 +95,22 @@
                 // error
                 console.log("error", response);
             });
+        };
+
+        $scope.update = function (bookmark) {
+            // call update method
+            BookmarkFactory.update({
+                id: bookmark._id,
+                title: bookmark.title,
+                url: bookmark.url
+            }, (response) => {
+                // successful post
+                console.log(response);
+            }, (response) => {
+                // error
+                console.log("error", response);
+            });
+            bookmark._isBeingEdited = false;
         };
 
     });

@@ -25,6 +25,12 @@
                 <li ng-repeat="bookmark in $parent.bookmarks | filter : filter">
                     <a ng-href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a>
                     <a ng-click="delete(bookmark)" class="bm-option">[ delete ]</a>
+                    <a ng-click="toggleEdit(bookmark)" class="bm-option">[ edit ]</a>
+                    <form ng-submit="update(bookmark)" ng-show="bookmark._isBeingEdited">
+                        <input type="text" ng-model="bookmark.title" placeholder="Name" />
+                        <input type="text" ng-model="bookmark.url" placeholder="http://" />
+                        <button>Edit</button>
+                    </form>
                 </li>
             </ul>
             <hr>
