@@ -1,5 +1,6 @@
 {
     "node": true,
+    "browser": true,
     "eqeqeq": true,
     "strict": true,
     "esversion": 6
