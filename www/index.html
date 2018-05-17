@@ -8,7 +8,7 @@
     <title>MEAN App Template</title>
     <meta name="description" content="">
     <meta name="author" content="Ignacio Cartes">
-    
+
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -20,9 +20,9 @@
         <hr>
         <div ng-controller="BookmarksController">
             <h2>Bookmarks</h2>
-            <input type="text" placeholder="Find..." ng-show="$parent.bookmarks.length">
+            <input type="text" placeholder="Find..." ng-show="$parent.bookmarks.length" ng-model="filter">
             <ul>
-                <li ng-repeat="bookmark in $parent.bookmarks">
+                <li ng-repeat="bookmark in $parent.bookmarks | filter : filter">
                     <a ng-href="{{ bookmark.url }}" target="_blank">{{ bookmark.title }}</a>
                     <a ng-click="delete(bookmark)" class="bm-option">[ delete ]</a>
                 </li>
