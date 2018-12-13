@@ -1,6 +1,6 @@
 {
     "name": "mean-app-template",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Base template for a MEAN app",
     "main": "server.js",
     "scripts": {
@@ -14,6 +14,6 @@
         "express": "^4.16.3",
         "method-override": "^2.3.10",
         "mongoose": "^5.1.1",
-        "morgan": "^1.9.0"
+        "morgan": "^1.9.1"
     }
 }
