@@ -41,14 +41,8 @@ app.use(express.static(__dirname + '/www'));
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodB.connectURI + '/' + config.mongodB.db, config.mongodB.options)
-    .then(
-        () => {
-            console.log('Connected to mongoDB!');
-        },
-        err => {
-            console.log('An error happened trying to connect to mongoDB: ', err);
-        }
-    );
+    .then(() => console.log('Connected to mongoDB!'))
+    .catch(err => console.log('An error happened trying to connect to mongoDB: ', err));
 
 
 

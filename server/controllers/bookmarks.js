@@ -19,10 +19,9 @@ const Bookmark = require('../../server/models/bookmarks');
 
 controller.getAllBookmarks = function (req, res) {
     // Find all bookmarks
-    Bookmark.find({}, (err, bookmarks) => {
-        if (err) res.send(err);
-        res.json(bookmarks);
-    });
+    Bookmark.find({})
+        .then(bookmarks => res.json(bookmarks))
+        .catch(err => res.send(err));
 };
 
 
@@ -34,10 +33,9 @@ controller.addNewBookmark = function (req, res) {
     let newBookmark = new Bookmark(req.body);
 
     // Save new bookmark to database
-    newBookmark.save((err, bookmarks) => {
-        if (err) res.send(err);
-        res.json(bookmarks);
-    });
+    newBookmark.save()
+        .then(bookmarks => res.json(bookmarks))
+        .catch(err => res.send(err));
 };
 
 
@@ -47,10 +45,9 @@ controller.addNewBookmark = function (req, res) {
 controller.getBookmarkById = function (req, res) {
     // Find bookmark that correspond to a provided id
     let id = req.params.id;
-    Bookmark.findById(id, (err, bookmark) => {
-        if (err) res.send(err);
-        res.json(bookmark);
-    });
+    Bookmark.findById(id)
+        .then(bookmark => res.json(bookmark))
+        .catch(err => res.send(err));
 };
 
 
@@ -59,14 +56,9 @@ controller.getBookmarkById = function (req, res) {
 
 controller.updateBookmark = function (req, res) {
     let id = req.params.id;
-    Bookmark.findOneAndUpdate({
-        _id: id
-    }, req.body, {
-        new: true
-    }, (err, bookmark) => {
-        if (err) res.send(err);
-        res.json(bookmark);
-    });
+    Bookmark.findOneAndUpdate({_id: id}, req.body)
+        .then(bookmark => res.json(bookmark))
+        .catch(err => res.send(err));
 };
 
 
@@ -75,12 +67,9 @@ controller.updateBookmark = function (req, res) {
 
 controller.deleteBookmark = function (req, res) {
     let id = req.params.id;
-    Bookmark.remove({
-        _id: id
-    }, (err, bookmark) => {
-        if (err) res.send(err);
-        res.json(bookmark);
-    });
+    Bookmark.remove({_id: id})
+        .then(bookmark => res.json(bookmark))
+        .catch(err => res.send(err));
 };
 
 
